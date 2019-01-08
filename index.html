@@ -1,0 +1,30 @@
+<html>
+
+<script>
+
+function startTimer(){
+	var currentSecond=1;
+	var IntervalID = setInterval(function (){
+			++currentSecond;
+				if (currentSecond ==10){
+		
+			clearInterval(IntervalID);
+			
+				}
+
+		document.getElementById("TimerBox").innerHTML =currentSecond;
+
+		}
+		
+		,1000);
+
+}
+
+</script>
+
+<body>
+<div>Timer that counts to 10.</div>
+<div><button id='TimerButton' onclick='startTimer()'>Click to Start</button></div>
+<div id='TimerBox'>1<div>
+</body>
+</html>
