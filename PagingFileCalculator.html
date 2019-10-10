@@ -1,0 +1,69 @@
+<html>
+<!-- https://support.microsoft.com/en-us/help/2860880/how-to-determine-the-appropriate-page-file-size-for-64-bit-versions-of-->
+<script>
+
+function calculate(){
+
+p1=document.getElementById("RAM").value;
+
+v1=calculateMax(p1);
+v2=calculateMin(p1);
+
+document.getElementById("max").innerHTML=v1;
+document.getElementById("min").innerHTML=v2;
+
+}
+
+function calculateMin(currentRam){
+
+minRam = currentRam*1024;
+minRam = minRam + 257;
+return minRam;
+}
+
+function calculateMax(currentRam){
+
+
+return currentRam * 3072;
+}
+
+</script>
+
+<body>
+<h1>Paging File Size Calculator</h1>
+Follows Microsoft Recommendations outlined <a href="https://support.microsoft.com/en-us/help/2860880/how-to-determine-the-appropriate-page-file-size-for-64-bit-versions-of" target="_blank">here</a>
+<div id="main">
+
+<div>
+Select the OS: 
+<span> 
+<select>
+<option value="2012">Windows Server 2012 R2</option>
+<option value="2016">Windows Server 2016</option>
+</select>
+</span>
+</div>
+
+<div>
+Enter System RAM here (GB): <input id="RAM"/>
+</div>
+
+<div>
+Enter Volume of Drive hosting OS (GB): <input id="VOL"/>
+</div>
+
+<button onclick="calculate()">
+Calculate
+</button>
+</div>
+
+<div id="Min">
+Recomended Minimum: <span id="min"></span> MB
+</div>
+<div id="Max">
+Recomended Maximum:
+<span id="max"></span> MB
+</div>
+
+</body>
+</htmL>
