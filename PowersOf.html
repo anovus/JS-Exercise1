@@ -1,0 +1,44 @@
+<html>
+<script>
+
+function exponentiate(){
+	<!--clears-->
+	document.getElementById("result").innerHTML='<tr> </tr>';
+	
+	
+	var power =document.getElementById('power').value;
+	var number =document.getElementById('number').value;
+	var i=1;
+	var base=number;
+	var endDisplay=document.getElementById("result").innerHTML;
+	
+	if (power==0){
+		document.getElementById("result").innerHTML=base;
+		
+	}
+	while (i < power){
+		
+		number=base*number
+		endDisplay=endDisplay+'<tr>'+ number +'   </tr>';
+		++i;
+	}
+	document.getElementById("result").innerHTML=endDisplay;
+	
+}
+
+</script>
+<body>
+<div>
+Base
+<input id='number'>
+</div>
+<div>
+Power
+<input id='power'>
+</div>
+<div>
+<button onclick='exponentiate()'>Exponentiate</button>
+</div>
+<div id='result'></div>
+</body>
+</html>
